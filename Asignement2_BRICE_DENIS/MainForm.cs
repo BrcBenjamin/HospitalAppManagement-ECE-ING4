@@ -11,5 +11,10 @@ namespace Asignement2_BRICE_DENIS
         {
 
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
