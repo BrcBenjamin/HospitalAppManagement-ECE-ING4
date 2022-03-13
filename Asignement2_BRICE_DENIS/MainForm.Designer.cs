@@ -31,6 +31,7 @@ namespace Asignement2_BRICE_DENIS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.managementSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doctorManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,7 @@ namespace Asignement2_BRICE_DENIS
             this.searchAppointmentByDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAPatientsAppointmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +80,7 @@ namespace Asignement2_BRICE_DENIS
             this.patientManagementToolStripMenuItem.Name = "patientManagementToolStripMenuItem";
             this.patientManagementToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.patientManagementToolStripMenuItem.Text = "Patient Management";
+            this.patientManagementToolStripMenuItem.Click += new System.EventHandler(this.patientManagementToolStripMenuItem_Click);
             // 
             // appointementManagementToolStripMenuItem
             // 
@@ -120,6 +123,11 @@ namespace Asignement2_BRICE_DENIS
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -148,6 +156,6 @@ namespace Asignement2_BRICE_DENIS
         private ToolStripMenuItem searchAppointmentByDateToolStripMenuItem;
         private ToolStripMenuItem showAPatientsAppointmentsToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
-
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

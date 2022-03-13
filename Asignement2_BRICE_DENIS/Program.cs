@@ -1,4 +1,5 @@
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Asignement2_BRICE_DENIS
 {
@@ -7,22 +8,24 @@ namespace Asignement2_BRICE_DENIS
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        /// 
+        public static string strConnexion = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+ System.IO.Path.GetFullPath(@"..\..\..\")+"Hospital.mdf;Integrated Security=True";
+
         [STAThread]
         static void Main()
         {
 
             ///CONNEXION DB CODE
-            string strConnexion = @"Data Source= (LocalDB)\MSSQLLocalDB; Initial Catalog = Hospital; Integrated Security = True";
             try
             {
                 SqlConnection Connection = new SqlConnection(strConnexion);
                 Connection.Open();
-                Console.WriteLine("Connection is: " + Connection.State);
+                Debug.WriteLine("Connection is: " + Connection.State);
                 Connection.Close();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Debug.WriteLine("Error : "+e.Message);
             }
             
             // To customize application configuration such as set high DPI settings or default font,

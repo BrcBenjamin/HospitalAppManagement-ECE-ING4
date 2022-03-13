@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mout\\Source\\Repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {}
+    "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mout\\Source\\Repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {
+    "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mout\\Source\\Repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
+        "projectUniqueName": "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
         "projectName": "Asignement2_BRICE_DENIS",
-        "projectPath": "C:\\Users\\mout\\Source\\Repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
+        "projectPath": "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
         "packagesPath": "C:\\Users\\mout\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mout\\Source\\Repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\obj\\",
+        "outputPath": "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

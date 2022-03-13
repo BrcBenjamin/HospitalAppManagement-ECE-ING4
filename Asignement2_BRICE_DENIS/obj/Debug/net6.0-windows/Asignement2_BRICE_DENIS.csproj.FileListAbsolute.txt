@@ -22,3 +22,4 @@ C:\Users\mout\Source\Repos\HospitalAppManagement\Asignement2_BRICE_DENIS\bin\Deb
 C:\Users\mout\Source\Repos\HospitalAppManagement\Asignement2_BRICE_DENIS\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\mout\Source\Repos\HospitalAppManagement\Asignement2_BRICE_DENIS\obj\Debug\net6.0-windows\Asignement2_BRICE_DENIS.MainForm.resources
 C:\Users\mout\Source\Repos\HospitalAppManagement\Asignement2_BRICE_DENIS\obj\Debug\net6.0-windows\Asignement2_BRICE_DENIS.csproj.CopyComplete
+C:\Users\mout\source\repos\HospitalAppManagement\Asignement2_BRICE_DENIS\obj\Debug\net6.0-windows\Asignement2_BRICE_DENIS.Doctor_Management.resources
