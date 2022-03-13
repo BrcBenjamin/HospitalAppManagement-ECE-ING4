@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {}
+    "C:\\Users\\matthieudenis\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {
+    "C:\\Users\\matthieudenis\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
+        "projectUniqueName": "C:\\Users\\matthieudenis\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
         "projectName": "Asignement2_BRICE_DENIS",
-        "projectPath": "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
-        "packagesPath": "C:\\Users\\mout\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mout\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\obj\\",
+        "projectPath": "C:\\Users\\matthieudenis\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\Asignement2_BRICE_DENIS.csproj",
+        "packagesPath": "C:\\Users\\matthieudenis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matthieudenis\\source\\repos\\HospitalAppManagement\\Asignement2_BRICE_DENIS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mout\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matthieudenis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -67,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\x64\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\x64\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

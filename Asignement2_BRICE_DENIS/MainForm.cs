@@ -22,7 +22,8 @@ namespace Asignement2_BRICE_DENIS
 
         private void patientManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Patient_Management PatientForm = new Patient_Management();
+            PatientForm.Show();
         }
     }
 }
