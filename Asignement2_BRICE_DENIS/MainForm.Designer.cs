@@ -56,7 +56,7 @@ namespace Asignement2_BRICE_DENIS
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1486, 46);
+            this.menuStrip1.Size = new System.Drawing.Size(1486, 44);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,7 +67,7 @@ namespace Asignement2_BRICE_DENIS
             this.patientManagementToolStripMenuItem,
             this.appointementManagementToolStripMenuItem});
             this.managementSystemToolStripMenuItem.Name = "managementSystemToolStripMenuItem";
-            this.managementSystemToolStripMenuItem.Size = new System.Drawing.Size(260, 38);
+            this.managementSystemToolStripMenuItem.Size = new System.Drawing.Size(260, 36);
             this.managementSystemToolStripMenuItem.Text = "Management System";
             // 
             // doctorManagementToolStripMenuItem
@@ -98,14 +98,15 @@ namespace Asignement2_BRICE_DENIS
             this.searchAppointmentByDateToolStripMenuItem,
             this.showAPatientsAppointmentsToolStripMenuItem});
             this.consulationToolStripMenuItem.Name = "consulationToolStripMenuItem";
-            this.consulationToolStripMenuItem.Size = new System.Drawing.Size(161, 38);
-            this.consulationToolStripMenuItem.Text = "Consulation";
+            this.consulationToolStripMenuItem.Size = new System.Drawing.Size(169, 36);
+            this.consulationToolStripMenuItem.Text = "Consultation";
             // 
             // showAllToolStripMenuItem
             // 
             this.showAllToolStripMenuItem.Name = "showAllToolStripMenuItem";
             this.showAllToolStripMenuItem.Size = new System.Drawing.Size(477, 44);
             this.showAllToolStripMenuItem.Text = "Show All";
+            this.showAllToolStripMenuItem.Click += new System.EventHandler(this.showAllToolStripMenuItem_Click);
             // 
             // searchAppointmentByDateToolStripMenuItem
             // 
@@ -122,7 +123,7 @@ namespace Asignement2_BRICE_DENIS
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(71, 38);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(71, 36);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -139,7 +140,7 @@ namespace Asignement2_BRICE_DENIS
             this.ClientSize = new System.Drawing.Size(1486, 960);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.menuStrip1.ResumeLayout(false);

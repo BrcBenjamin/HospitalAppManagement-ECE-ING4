@@ -33,5 +33,11 @@ namespace Asignement2_BRICE_DENIS
             AppointmentManagement AppointmentForm = new AppointmentManagement();
             AppointmentForm.Show();
         }
+
+        private void showAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show_All form = new Show_All();
+            form.Show();
+        }
     }
 }
