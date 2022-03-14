@@ -81,8 +81,8 @@ namespace Asignement2_BRICE_DENIS
             {
                 MessageBox.Show(e.Message);
 
-            }  
-        
+            }
+
             reader.Close();
             connection.Close();
         }
@@ -113,7 +113,7 @@ namespace Asignement2_BRICE_DENIS
         }
 
         //get patient values from his selected row id
-        private void getPatientValues(DataGridViewCellEventArgs  e)
+        private void getPatientValues(DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
             DataGridViewRow dgRow = this.SearchAppDateGrid.Rows[e.RowIndex];
