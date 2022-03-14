@@ -30,7 +30,7 @@ namespace Asignement2_BRICE_DENIS
                 MessageBox.Show("You must fill the values", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            ValidateTime();
+            if(!ValidateTime()) return;
             AddAppointment();
         }
 
@@ -140,6 +140,9 @@ namespace Asignement2_BRICE_DENIS
                     this.AppDoctorCodeCbox.Items.Add(reader["DoctorId"].ToString());
                 }
             } while (reader.NextResult());
+
+            connection.Close();
+            reader.Close();
         }
 
         private void LoadDoctorData()
@@ -203,7 +206,7 @@ namespace Asignement2_BRICE_DENIS
             connection.Close();
         }
 
-        private void ValidateTime()
+        private Boolean ValidateTime()
         {
             string text = this.AppTimeMtbox.Text;
             string[] parts = text.Split(":");
@@ -213,13 +216,14 @@ namespace Asignement2_BRICE_DENIS
             if(Hours > 24)
             {
                 MessageBox.Show("Please enter the appointment hour in 00-24 only", "Time Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
             if(Minutes > 60)
             {
                 MessageBox.Show("Please enter the appointment minutes in 00-60 only", "Time Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
+            return true;
         }
 
     }

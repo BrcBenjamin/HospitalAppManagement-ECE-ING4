@@ -120,6 +120,7 @@ namespace Asignement2_BRICE_DENIS
             this.showAPatientsAppointmentsToolStripMenuItem.Name = "showAPatientsAppointmentsToolStripMenuItem";
             this.showAPatientsAppointmentsToolStripMenuItem.Size = new System.Drawing.Size(477, 44);
             this.showAPatientsAppointmentsToolStripMenuItem.Text = "Show a patient\'s appointments";
+            this.showAPatientsAppointmentsToolStripMenuItem.Click += new System.EventHandler(this.showAPatientsAppointmentsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 

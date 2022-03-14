@@ -25,6 +25,18 @@ namespace Asignement2_BRICE_DENIS
             return false;
         }
 
+        // ON FORM LOAD (Used to pass data between forms)
+        private void Doctor_Management_Load(object sender, EventArgs e)
+        {
+
+            this.DoctorCodeTbox.Text = ShowPatientAppointments.doctorCode;
+            this.DoctorDate.Text = ShowPatientAppointments.doctorHiringDate;
+            this.DoctorSpecialityCbox.Text = ShowPatientAppointments.doctorSpeciality;
+            this.DoctorNameTbox.Text = ShowPatientAppointments.doctorName;
+            this.DoctorPhoneTbox.Text = ShowPatientAppointments.doctorTel;
+
+        }
+
 
         //NEW
         private void NewButton_Click(object sender, EventArgs e)
@@ -58,10 +70,22 @@ namespace Asignement2_BRICE_DENIS
                 MessageBox.Show("You must fill the values", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
+            if (!int.TryParse(this.DoctorCodeTbox.Text, out int value))
+            {
+                MessageBox.Show("Patient Code must be a number", "Add Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (int.TryParse(this.DoctorNameTbox.Text, out int value2))
+            {
+                MessageBox.Show("There cannot be letters in your name", "Add Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
 
             AddDoctor();
-            ClearDoctorValues();
+           
         }
 
         //EDIT
@@ -70,6 +94,18 @@ namespace Asignement2_BRICE_DENIS
             if (CheckEmptyValues())
             {
                 MessageBox.Show("You must first load a doctors information before editing it, try using the search button", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(this.DoctorCodeTbox.Text, out int value))
+            {
+                MessageBox.Show("Patient Code must be a number", "Edit Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (int.TryParse(this.DoctorNameTbox.Text, out int value2))
+            {
+                MessageBox.Show("There cannot be letters in your name", "Edit Doctor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -137,6 +173,7 @@ namespace Asignement2_BRICE_DENIS
                 insert.Parameters.AddWithValue("@param5", this.DoctorSpecialityCbox.Text);
                 insert.ExecuteNonQuery();
                 MessageBox.Show("Doctor Successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ClearDoctorValues();
 
 
             }
@@ -423,7 +460,8 @@ namespace Asignement2_BRICE_DENIS
             // 
             // DoctorDate
             // 
-            this.DoctorDate.CustomFormat = "\"MM\'/\'dd\'/\'yyyy\"";
+            this.DoctorDate.CustomFormat = "dd MMMM yyyy";
+            this.DoctorDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DoctorDate.Location = new System.Drawing.Point(231, 287);
             this.DoctorDate.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.DoctorDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
@@ -434,21 +472,23 @@ namespace Asignement2_BRICE_DENIS
             // 
             // DoctorSpecialityCbox
             // 
+            this.DoctorSpecialityCbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DoctorSpecialityCbox.FormattingEnabled = true;
             this.DoctorSpecialityCbox.Items.AddRange(new object[] {
             "",
             "Allergists",
-            "Dermatologists",
-            "Infectious disease Doctors",
-            "Ophthalmologists",
-            "Obstetrician/gynecologists",
             "Cardiologists",
+            "Dermatologists",
             "Endocrinologists",
             "Gastroenterologists",
-            "General Doctor"});
+            "General Doctor",
+            "Infectious disease Doctors",
+            "Obstetrician/gynecologists",
+            "Ophthalmologists"});
             this.DoctorSpecialityCbox.Location = new System.Drawing.Point(231, 360);
             this.DoctorSpecialityCbox.Name = "DoctorSpecialityCbox";
             this.DoctorSpecialityCbox.Size = new System.Drawing.Size(377, 40);
+            this.DoctorSpecialityCbox.Sorted = true;
             this.DoctorSpecialityCbox.TabIndex = 3;
             // 
             // DoctorNameTbox
@@ -472,6 +512,7 @@ namespace Asignement2_BRICE_DENIS
             this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "Doctor_Management";
             this.Text = "Doctor_Management";
+            this.Load += new System.EventHandler(this.Doctor_Management_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -497,6 +538,6 @@ namespace Asignement2_BRICE_DENIS
         private MaskedTextBox DoctorPhoneTbox;
         private GroupBox groupBox1;
 
-
+ 
     }
 }

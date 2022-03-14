@@ -132,6 +132,7 @@
             // AppDateTbox
             // 
             this.AppDateTbox.CustomFormat = "dd MMMM yyyy";
+            this.AppDateTbox.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.AppDateTbox.Location = new System.Drawing.Point(262, 73);
             this.AppDateTbox.Name = "AppDateTbox";
             this.AppDateTbox.Size = new System.Drawing.Size(340, 39);
@@ -171,10 +172,12 @@
             // 
             // AppDoctorCodeCbox
             // 
+            this.AppDoctorCodeCbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AppDoctorCodeCbox.FormattingEnabled = true;
             this.AppDoctorCodeCbox.Location = new System.Drawing.Point(248, 81);
             this.AppDoctorCodeCbox.Name = "AppDoctorCodeCbox";
             this.AppDoctorCodeCbox.Size = new System.Drawing.Size(208, 40);
+            this.AppDoctorCodeCbox.Sorted = true;
             this.AppDoctorCodeCbox.TabIndex = 5;
             this.AppDoctorCodeCbox.SelectedIndexChanged += new System.EventHandler(this.AppDoctorCodecbox_SelectedIndexChanged);
             // 
@@ -265,10 +268,12 @@
             // 
             // AppPatientCodeCbox
             // 
+            this.AppPatientCodeCbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AppPatientCodeCbox.FormattingEnabled = true;
             this.AppPatientCodeCbox.Location = new System.Drawing.Point(244, 80);
             this.AppPatientCodeCbox.Name = "AppPatientCodeCbox";
             this.AppPatientCodeCbox.Size = new System.Drawing.Size(216, 40);
+            this.AppPatientCodeCbox.Sorted = true;
             this.AppPatientCodeCbox.TabIndex = 3;
             this.AppPatientCodeCbox.SelectedIndexChanged += new System.EventHandler(this.AppPatientCodeCbox_SelectedIndexChanged);
             // 

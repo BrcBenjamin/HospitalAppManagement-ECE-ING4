@@ -145,6 +145,7 @@
             // 
             this.TboxDoctorSpec.Location = new System.Drawing.Point(166, 156);
             this.TboxDoctorSpec.Name = "TboxDoctorSpec";
+            this.TboxDoctorSpec.ReadOnly = true;
             this.TboxDoctorSpec.Size = new System.Drawing.Size(188, 39);
             this.TboxDoctorSpec.TabIndex = 1;
             // 
@@ -152,6 +153,7 @@
             // 
             this.TboxDoctorName.Location = new System.Drawing.Point(166, 88);
             this.TboxDoctorName.Name = "TboxDoctorName";
+            this.TboxDoctorName.ReadOnly = true;
             this.TboxDoctorName.Size = new System.Drawing.Size(188, 39);
             this.TboxDoctorName.TabIndex = 0;
             // 
@@ -191,6 +193,7 @@
             this.TboxPatientBirth.Location = new System.Drawing.Point(194, 163);
             this.TboxPatientBirth.Mask = "00/00/0000";
             this.TboxPatientBirth.Name = "TboxPatientBirth";
+            this.TboxPatientBirth.ReadOnly = true;
             this.TboxPatientBirth.Size = new System.Drawing.Size(200, 39);
             this.TboxPatientBirth.TabIndex = 1;
             this.TboxPatientBirth.ValidatingType = typeof(System.DateTime);
@@ -199,6 +202,7 @@
             // 
             this.TboxPatientName.Location = new System.Drawing.Point(194, 97);
             this.TboxPatientName.Name = "TboxPatientName";
+            this.TboxPatientName.ReadOnly = true;
             this.TboxPatientName.Size = new System.Drawing.Size(200, 39);
             this.TboxPatientName.TabIndex = 0;
             // 

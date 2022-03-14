@@ -57,8 +57,20 @@ namespace Asignement2_BRICE_DENIS
                 return;
             }
 
+            if (!int.TryParse(this.PatientCodeTbox.Text, out int value))
+            {
+                MessageBox.Show("Patient Code must be a number", "Add Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (int.TryParse(this.PatientNameTbox.Text, out int value2))
+            {
+                MessageBox.Show("There cannot be letters in your name", "Add Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             AddPatient();
-            ClearPatientValues();
+      
         }
 
         //EDIT
@@ -67,6 +79,18 @@ namespace Asignement2_BRICE_DENIS
             if (CheckEmptyValues())
             {
                 MessageBox.Show("You must first load a patients information before editing it, try using the search button", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(this.PatientCodeTbox.Text, out int value))
+            {
+                MessageBox.Show("Patient Code must be a number", "Edit Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (int.TryParse(this.PatientNameTbox.Text, out int value2))
+            {
+                MessageBox.Show("There cannot be letters in your name", "Edit Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -141,6 +165,7 @@ namespace Asignement2_BRICE_DENIS
                 insert.Parameters.AddWithValue("@param5", this.CheckGender());
                 insert.ExecuteNonQuery();
                 MessageBox.Show("Patient Successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ClearPatientValues();
 
 
             }
@@ -321,7 +346,6 @@ namespace Asignement2_BRICE_DENIS
             this.PatientRadioBoy.TabIndex = 20;
             this.PatientRadioBoy.Text = "Masculine";
             this.PatientRadioBoy.UseVisualStyleBackColor = true;
-           
             // 
             // PatientRadioGirl
             // 
@@ -456,7 +480,8 @@ namespace Asignement2_BRICE_DENIS
             // 
             // PatientDatePicker
             // 
-            this.PatientDatePicker.CustomFormat = "\"MM\'/\'dd\'/\'yyyy\"";
+            this.PatientDatePicker.CustomFormat = "dd MMMM yyyy";
+            this.PatientDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PatientDatePicker.Location = new System.Drawing.Point(231, 231);
             this.PatientDatePicker.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
             this.PatientDatePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
@@ -478,7 +503,6 @@ namespace Asignement2_BRICE_DENIS
             this.PatientCodeTbox.Name = "PatientCodeTbox";
             this.PatientCodeTbox.Size = new System.Drawing.Size(377, 39);
             this.PatientCodeTbox.TabIndex = 0;
-          
             // 
             // Patient_Management
             // 
