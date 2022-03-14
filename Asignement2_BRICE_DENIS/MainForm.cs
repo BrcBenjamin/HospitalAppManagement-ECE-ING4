@@ -15,9 +15,11 @@ namespace Asignement2_BRICE_DENIS
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBoxIcon icon = MessageBoxIcon.Warning;
-            MessageBoxButtons button = MessageBoxButtons.OK;
-            MessageBox.Show("Code error: already used", "Error", button, icon);
+
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Form", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Cancel) return;
+
+            this.Close();
         }
 
         private void patientManagementToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,146 +10,252 @@ namespace Asignement2_BRICE_DENIS
 {
     internal class Patient_Management:Form
     {
-        private Label label1;
-        private Button PatientExitButton;
-        private Button PatientDeleteButton;
-        private Button PatientEditButton;
-        private Button PatientAddButton;
-        private Button PatientSearchButton;
-        private Button PatientNewButton;
-        private DateTimePicker PatientDatePicker;
-        private TextBox PatientNameTbox;
-        private TextBox PatientCodeTbox;
-        private Label label5;
-        private Label label4;
-        private Label label2;
-        private TextBox PatientAddressTbox;
-        private RadioButton PatientRadioBoy;
-        private RadioButton PatientRadioGirl;
-        private Label GenderLabel;
-        private GroupBox groupBox1;
-
         public Patient_Management()
         {
             InitializeComponent();
         }
 
-        private void ShowMessageBox(string message, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
-        {
-            MessageBox.Show(message, caption, buttons, icon);
+
+        //check if textbox values are not filled
+        private Boolean CheckEmptyValues() {
+            if (string.IsNullOrWhiteSpace(this.PatientCodeTbox.Text)  || string.IsNullOrWhiteSpace(this.PatientNameTbox.Text)  || string.IsNullOrWhiteSpace(this.PatientAddressTbox.Text) ) return true;
+            return false;
         }
 
         //NEW
-        private void button1_Click(object sender, EventArgs e)
+        private void NewButton_Click(object sender, EventArgs e)
         {
-            this.PatientCodeTbox.Text = string.Empty;
-            this.PatientNameTbox.Text = string.Empty;
-            this.PatientAddressTbox.Text = string.Empty;            
-            this.PatientDatePicker.Text = string.Empty;
-            this.PatientRadioBoy.Checked = false;
-            this.PatientRadioGirl.Checked = true;
-
+            ClearPatientValues();
         }
 
         //SEARCH
-        private void button2_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(this.PatientCodeTbox.Text))
+            {
+                MessageBox.Show("Enter the id of the patient you want to search in the code textbox", "Search Patient", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             //Get code
             int code= Convert.ToInt32(this.PatientCodeTbox.Text);
             // Search in DB
             SqlConnection con = new SqlConnection(Program.strConnexion);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from Doctors where DoctorId="+code,con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            //Load in box
-            this.PatientNameTbox.Text = Convert.ToString(reader["DoctorName"]);
-            this.PatientAddressTbox.Text = Convert.ToString(reader["DoctorTel"]);
-            this.PatientDatePicker.Text = Convert.ToString(reader["HiringDate"]);
+            SearchPatient(con, code);
             con.Close();
             
         }
 
         //ADD
-        private void button3_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(this.PatientCodeTbox.Text) == false && string.IsNullOrWhiteSpace(this.PatientNameTbox.Text) == false && string.IsNullOrWhiteSpace(this.PatientAddressTbox.Text) == false
-                && string.IsNullOrWhiteSpace(this.PatientDatePicker.Text) == false ){
 
-                int code = Convert.ToInt32(this.PatientCodeTbox.Text);
-
-                // Search in DB
-                SqlConnection con = new SqlConnection(Program.strConnexion);
-                con.Open();
-
-                SqlCommand cmd = new SqlCommand("select * from Patient where PatientId=" + code, con);
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read() == true) { 
-                    ShowMessageBox("Patient Code error: already used", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    reader.Close();
-                }
-                else { 
-                    reader.Close();
-                    AddPatient(con);
-                    ShowMessageBox("Patient Successfully added!","Success",MessageBoxButtons.OK,MessageBoxIcon.None);
-                    con.Close();
-                }
-                
+            if (CheckEmptyValues())
+            {
+                MessageBox.Show("You must fill the values", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            AddPatient();
+        }
+
+        //EDIT
+        private void PatientEditButton_Click(object sender, EventArgs e)
+        {
+            if (CheckEmptyValues())
+            {
+                MessageBox.Show("You must first load a patients information before editing it, try using the search button", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to Edit this patient's information?", "Edit Patient", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Cancel) return;
+            EditPatient();
+        }
+
+
+        // DELETE
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(this.PatientCodeTbox.Text)) { 
+                MessageBox.Show("Enter the id of the patient you want to delete in the Code box", "Delete Patient",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this patient", "Delete Patient", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Cancel) return;
+            DeletePatient();
+            ClearPatientValues();
+        }
+
+        //EXIT
+        private void PatientExitButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit Form", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Cancel) return;
+
+            this.Close();
 
         }
 
+
+        // Checks the value of the selected radio button
         private Boolean CheckGender()
         {
-            if (this.PatientRadioBoy.Checked == true) {
-                return true;
-            }
+            // in DB Boy is true
+            if (this.PatientRadioBoy.Checked == true) return true;
+            // in DB girl is false
             return false;
         }
 
-        private void AddPatient(SqlConnection connection)
+        private void AddPatient()
         {
-            SqlCommand insert = new SqlCommand();
-            insert.Connection = connection;
-            insert.CommandText = "INSERT INTO Patient(PatientId, PatientName, PatientAddress,BirthDate,PatientGender)  VALUES(@param1,@param2,@param3,@param4,@param5)";
-            insert.Parameters.AddWithValue("@param1", this.PatientCodeTbox.Text);
-            insert.Parameters.AddWithValue("@param2", this.PatientNameTbox.Text);
-            insert.Parameters.AddWithValue("@param3", this.PatientAddressTbox.Text);
-            insert.Parameters.AddWithValue("@param4", Convert.ToDateTime(this.PatientDatePicker.Text));
-            insert.Parameters.AddWithValue("@param5", this.CheckGender());
-            insert.ExecuteNonQuery();
+            int code = Convert.ToInt32(this.PatientCodeTbox.Text);
+
+            // Search in DB
+            SqlConnection connection = new SqlConnection(Program.strConnexion);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from Patient where PatientId=" + code, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read() == true)
+            {
+                MessageBox.Show("Patient Code error: already used", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                reader.Close();
+                return;
+            }
+
+            reader.Close();
+
+            try
+            {
+                SqlCommand insert = new SqlCommand();
+                insert.Connection = connection;
+                insert.CommandText = "INSERT INTO Patient(PatientId, PatientName, PatientAddress,BirthDate,PatientGender)  VALUES(@param1,@param2,@param3,@param4,@param5)";
+                insert.Parameters.AddWithValue("@param1", this.PatientCodeTbox.Text);
+                insert.Parameters.AddWithValue("@param2", this.PatientNameTbox.Text);
+                insert.Parameters.AddWithValue("@param3", this.PatientAddressTbox.Text);
+                insert.Parameters.AddWithValue("@param4", Convert.ToDateTime(this.PatientDatePicker.Text));
+                insert.Parameters.AddWithValue("@param5", this.CheckGender());
+                insert.ExecuteNonQuery();
+                MessageBox.Show("Patient Successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
+            connection.Close();
+        }
+
+        private void SearchPatient(SqlConnection connection,int code)
+        {
+            SqlCommand search = new SqlCommand();
+            search.Connection = connection;
+            search.CommandText = "Select * from Patient where PatientId=" + code;
+            SqlDataReader reader =  search.ExecuteReader();
+            if(reader.Read() == false)
+            {
+                MessageBox.Show("Patient Doesnt exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            };
+
+
+            this.PatientNameTbox.Text = Convert.ToString(reader["PatientName"]);
+            this.PatientAddressTbox.Text = Convert.ToString(reader["PatientAddress"]);
+            this.PatientDatePicker.Text = Convert.ToString(reader["BirthDate"]);
+            if(Convert.ToBoolean(reader["PatientGender"]) == true)
+            {
+                this.PatientRadioBoy.Checked = true;
+                this.PatientRadioGirl.Checked = false;
+            }else
+            {
+                this.PatientRadioBoy.Checked = false;
+                this.PatientRadioGirl.Checked = true;
+            }
+
+            reader.Close();
         }
 
 
-        private void button6_Click(object sender, EventArgs e)
+        private void DeletePatient()
         {
+
+            int code = Convert.ToInt32(this.PatientCodeTbox.Text);
+
+            SqlConnection con = new SqlConnection(Program.strConnexion);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from Patient where PatientId=" + code, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read() == false)
+            {
+                MessageBox.Show("Patient Doesnt exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            reader.Close();
+
+            try
+            {
+                SqlCommand delete = new SqlCommand();
+                delete.Connection = con;
+                delete.CommandText = "Delete from Patient where PatientId="+code;
+                delete.ExecuteNonQuery();
+                MessageBox.Show("Patient Successfully deleted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+            
+            con.Close();
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void EditPatient()
         {
+            int code = Convert.ToInt32(this.PatientCodeTbox.Text);
+
+            // Search in DB
+            SqlConnection connection = new SqlConnection(Program.strConnexion);
+            connection.Open();
+
+            try
+            {
+                SqlCommand edit = new SqlCommand();
+                edit.Connection = connection;
+                edit.CommandText = "UPDATE Patient Set PatientName = @param1, PatientAddress = @param2, BirthDate = @param3, PatientGender = @param4 WHERE PatientId="+code;
+                edit.Parameters.AddWithValue("@param1", this.PatientNameTbox.Text);
+                edit.Parameters.AddWithValue("@param2", this.PatientAddressTbox.Text);
+                edit.Parameters.AddWithValue("@param3", Convert.ToDateTime(this.PatientDatePicker.Text));
+                edit.Parameters.AddWithValue("@param4", this.CheckGender());
+                edit.ExecuteNonQuery();
+                MessageBox.Show("Patient Successfully Edited!", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine(e);
+            }
+
+            connection.Close();
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void ClearPatientValues()
         {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RadioBoy_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PatientCodeTbox_TextChanged(object sender, EventArgs e)
-        {
-
+            this.PatientCodeTbox.Text = string.Empty;
+            this.PatientNameTbox.Text = string.Empty;
+            this.PatientAddressTbox.Text = string.Empty;
+            this.PatientDatePicker.Text = string.Empty;
+            this.PatientRadioBoy.Checked = false;
+            this.PatientRadioGirl.Checked = true;
         }
 
 
@@ -214,7 +321,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientRadioBoy.TabIndex = 20;
             this.PatientRadioBoy.Text = "Masculine";
             this.PatientRadioBoy.UseVisualStyleBackColor = true;
-            this.PatientRadioBoy.CheckedChanged += new System.EventHandler(this.RadioBoy_CheckedChanged);
+           
             // 
             // PatientRadioGirl
             // 
@@ -253,7 +360,6 @@ namespace Asignement2_BRICE_DENIS
             this.label5.Size = new System.Drawing.Size(98, 32);
             this.label5.TabIndex = 15;
             this.label5.Text = "Address";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -263,7 +369,6 @@ namespace Asignement2_BRICE_DENIS
             this.label4.Size = new System.Drawing.Size(121, 32);
             this.label4.TabIndex = 14;
             this.label4.Text = "Birth Date";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
@@ -292,7 +397,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientExitButton.TabIndex = 10;
             this.PatientExitButton.Text = "Exit";
             this.PatientExitButton.UseVisualStyleBackColor = true;
-            this.PatientExitButton.Click += new System.EventHandler(this.button6_Click);
+            this.PatientExitButton.Click += new System.EventHandler(this.PatientExitButton_Click);
             // 
             // PatientDeleteButton
             // 
@@ -303,6 +408,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientDeleteButton.TabIndex = 9;
             this.PatientDeleteButton.Text = "Delete";
             this.PatientDeleteButton.UseVisualStyleBackColor = true;
+            this.PatientDeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // PatientEditButton
             // 
@@ -313,6 +419,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientEditButton.TabIndex = 8;
             this.PatientEditButton.Text = "Edit";
             this.PatientEditButton.UseVisualStyleBackColor = true;
+            this.PatientEditButton.Click += new System.EventHandler(this.PatientEditButton_Click);
             // 
             // PatientAddButton
             // 
@@ -323,7 +430,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientAddButton.TabIndex = 7;
             this.PatientAddButton.Text = "Add";
             this.PatientAddButton.UseVisualStyleBackColor = true;
-            this.PatientAddButton.Click += new System.EventHandler(this.button3_Click);
+            this.PatientAddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // PatientSearchButton
             // 
@@ -334,7 +441,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientSearchButton.TabIndex = 6;
             this.PatientSearchButton.Text = "Search";
             this.PatientSearchButton.UseVisualStyleBackColor = true;
-            this.PatientSearchButton.Click += new System.EventHandler(this.button2_Click);
+            this.PatientSearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // PatientNewButton
             // 
@@ -345,7 +452,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientNewButton.TabIndex = 5;
             this.PatientNewButton.Text = "New";
             this.PatientNewButton.UseVisualStyleBackColor = true;
-            this.PatientNewButton.Click += new System.EventHandler(this.button1_Click);
+            this.PatientNewButton.Click += new System.EventHandler(this.NewButton_Click);
             // 
             // PatientDatePicker
             // 
@@ -371,7 +478,7 @@ namespace Asignement2_BRICE_DENIS
             this.PatientCodeTbox.Name = "PatientCodeTbox";
             this.PatientCodeTbox.Size = new System.Drawing.Size(377, 39);
             this.PatientCodeTbox.TabIndex = 0;
-            this.PatientCodeTbox.TextChanged += new System.EventHandler(this.PatientCodeTbox_TextChanged);
+          
             // 
             // Patient_Management
             // 
@@ -385,5 +492,27 @@ namespace Asignement2_BRICE_DENIS
             this.ResumeLayout(false);
 
         }
+
+        // Declarations
+        private Label label1;
+        private Button PatientExitButton;
+        private Button PatientDeleteButton;
+        private Button PatientEditButton;
+        private Button PatientAddButton;
+        private Button PatientSearchButton;
+        private Button PatientNewButton;
+        private DateTimePicker PatientDatePicker;
+        private TextBox PatientNameTbox;
+        private TextBox PatientCodeTbox;
+        private Label label5;
+        private Label label4;
+        private Label label2;
+        private TextBox PatientAddressTbox;
+        private RadioButton PatientRadioBoy;
+        private RadioButton PatientRadioGirl;
+        private Label GenderLabel;
+        private GroupBox groupBox1;
+
+ 
     }
 }
