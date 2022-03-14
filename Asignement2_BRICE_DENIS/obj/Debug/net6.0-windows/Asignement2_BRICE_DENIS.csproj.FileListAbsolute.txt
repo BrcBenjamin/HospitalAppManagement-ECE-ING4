@@ -51,3 +51,4 @@ C:\Users\matthieudenis\source\repos\HospitalAppManagement\Asignement2_BRICE_DENI
 C:\Users\matthieudenis\source\repos\HospitalAppManagement\Asignement2_BRICE_DENIS\obj\Debug\net6.0-windows\Asignement2_BRICE_DENIS.Patient_Management.resources
 C:\Users\matthieudenis\source\repos\HospitalAppManagement\Asignement2_BRICE_DENIS\obj\Debug\net6.0-windows\Asignement2_BRICE_DENIS.AppointmentManagement.resources
 C:\Users\matthieudenis\source\repos\HospitalAppManagement\Asignement2_BRICE_DENIS\obj\Debug\net6.0-windows\Asignement2_BRICE_DENIS.Show_All.resources
+C:\Users\matthieudenis\source\repos\HospitalAppManagement\Asignement2_BRICE_DENIS\obj\Debug\net6.0-windows\Asignement2_BRICE_DENIS.SearchAppByDate.resources

@@ -41,7 +41,7 @@ namespace Asignement2_BRICE_DENIS
         {
             SqlConnection connection = new SqlConnection(Program.strConnexion);
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from Doctors", connection);
+            SqlCommand cmd = new SqlCommand("select * from Appointments", connection);
             SqlDataReader reader = cmd.ExecuteReader();
 
             DataTable dt = new DataTable();
@@ -57,7 +57,7 @@ namespace Asignement2_BRICE_DENIS
         {
             SqlConnection connection = new SqlConnection(Program.strConnexion);
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from Appointments", connection);
+            SqlCommand cmd = new SqlCommand("select * from Doctors", connection);
             SqlDataReader reader = cmd.ExecuteReader();
 
             DataTable dt = new DataTable();

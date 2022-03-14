@@ -58,6 +58,7 @@ namespace Asignement2_BRICE_DENIS
             }
 
             AddPatient();
+            ClearPatientValues();
         }
 
         //EDIT

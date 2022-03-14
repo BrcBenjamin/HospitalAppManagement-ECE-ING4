@@ -39,5 +39,11 @@ namespace Asignement2_BRICE_DENIS
             Show_All form = new Show_All();
             form.Show();
         }
+
+        private void searchAppointmentByDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchAppByDate form = new SearchAppByDate();
+            form.Show();
+        }
     }
 }

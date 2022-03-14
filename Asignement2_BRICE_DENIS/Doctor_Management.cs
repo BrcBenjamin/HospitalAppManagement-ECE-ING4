@@ -61,6 +61,7 @@ namespace Asignement2_BRICE_DENIS
             
 
             AddDoctor();
+            ClearDoctorValues();
         }
 
         //EDIT

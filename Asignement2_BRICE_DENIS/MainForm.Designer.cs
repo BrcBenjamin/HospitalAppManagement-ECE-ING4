@@ -56,7 +56,7 @@ namespace Asignement2_BRICE_DENIS
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1486, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1486, 46);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,7 +67,7 @@ namespace Asignement2_BRICE_DENIS
             this.patientManagementToolStripMenuItem,
             this.appointementManagementToolStripMenuItem});
             this.managementSystemToolStripMenuItem.Name = "managementSystemToolStripMenuItem";
-            this.managementSystemToolStripMenuItem.Size = new System.Drawing.Size(260, 36);
+            this.managementSystemToolStripMenuItem.Size = new System.Drawing.Size(260, 38);
             this.managementSystemToolStripMenuItem.Text = "Management System";
             // 
             // doctorManagementToolStripMenuItem
@@ -98,7 +98,7 @@ namespace Asignement2_BRICE_DENIS
             this.searchAppointmentByDateToolStripMenuItem,
             this.showAPatientsAppointmentsToolStripMenuItem});
             this.consulationToolStripMenuItem.Name = "consulationToolStripMenuItem";
-            this.consulationToolStripMenuItem.Size = new System.Drawing.Size(169, 36);
+            this.consulationToolStripMenuItem.Size = new System.Drawing.Size(169, 38);
             this.consulationToolStripMenuItem.Text = "Consultation";
             // 
             // showAllToolStripMenuItem
@@ -113,6 +113,7 @@ namespace Asignement2_BRICE_DENIS
             this.searchAppointmentByDateToolStripMenuItem.Name = "searchAppointmentByDateToolStripMenuItem";
             this.searchAppointmentByDateToolStripMenuItem.Size = new System.Drawing.Size(477, 44);
             this.searchAppointmentByDateToolStripMenuItem.Text = "Search appointment by date";
+            this.searchAppointmentByDateToolStripMenuItem.Click += new System.EventHandler(this.searchAppointmentByDateToolStripMenuItem_Click);
             // 
             // showAPatientsAppointmentsToolStripMenuItem
             // 
@@ -123,7 +124,7 @@ namespace Asignement2_BRICE_DENIS
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(71, 36);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(71, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
