@@ -27,5 +27,11 @@ namespace Asignement2_BRICE_DENIS
             Patient_Management PatientForm = new Patient_Management();
             PatientForm.Show();
         }
+
+        private void appointementManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppointmentManagement AppointmentForm = new AppointmentManagement();
+            AppointmentForm.Show();
+        }
     }
 }

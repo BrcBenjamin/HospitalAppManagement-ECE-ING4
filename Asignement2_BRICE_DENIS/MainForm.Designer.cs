@@ -48,13 +48,15 @@ namespace Asignement2_BRICE_DENIS
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.managementSystemToolStripMenuItem,
             this.consulationToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(1486, 46);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,28 +67,29 @@ namespace Asignement2_BRICE_DENIS
             this.patientManagementToolStripMenuItem,
             this.appointementManagementToolStripMenuItem});
             this.managementSystemToolStripMenuItem.Name = "managementSystemToolStripMenuItem";
-            this.managementSystemToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
+            this.managementSystemToolStripMenuItem.Size = new System.Drawing.Size(260, 38);
             this.managementSystemToolStripMenuItem.Text = "Management System";
             // 
             // doctorManagementToolStripMenuItem
             // 
             this.doctorManagementToolStripMenuItem.Name = "doctorManagementToolStripMenuItem";
-            this.doctorManagementToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.doctorManagementToolStripMenuItem.Size = new System.Drawing.Size(451, 44);
             this.doctorManagementToolStripMenuItem.Text = "Doctor Management";
             this.doctorManagementToolStripMenuItem.Click += new System.EventHandler(this.doctorManagementToolStripMenuItem_Click);
             // 
             // patientManagementToolStripMenuItem
             // 
             this.patientManagementToolStripMenuItem.Name = "patientManagementToolStripMenuItem";
-            this.patientManagementToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.patientManagementToolStripMenuItem.Size = new System.Drawing.Size(451, 44);
             this.patientManagementToolStripMenuItem.Text = "Patient Management";
             this.patientManagementToolStripMenuItem.Click += new System.EventHandler(this.patientManagementToolStripMenuItem_Click);
             // 
             // appointementManagementToolStripMenuItem
             // 
             this.appointementManagementToolStripMenuItem.Name = "appointementManagementToolStripMenuItem";
-            this.appointementManagementToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.appointementManagementToolStripMenuItem.Size = new System.Drawing.Size(451, 44);
             this.appointementManagementToolStripMenuItem.Text = "Appointement Management";
+            this.appointementManagementToolStripMenuItem.Click += new System.EventHandler(this.appointementManagementToolStripMenuItem_Click);
             // 
             // consulationToolStripMenuItem
             // 
@@ -95,46 +98,48 @@ namespace Asignement2_BRICE_DENIS
             this.searchAppointmentByDateToolStripMenuItem,
             this.showAPatientsAppointmentsToolStripMenuItem});
             this.consulationToolStripMenuItem.Name = "consulationToolStripMenuItem";
-            this.consulationToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.consulationToolStripMenuItem.Size = new System.Drawing.Size(161, 38);
             this.consulationToolStripMenuItem.Text = "Consulation";
             // 
             // showAllToolStripMenuItem
             // 
             this.showAllToolStripMenuItem.Name = "showAllToolStripMenuItem";
-            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(477, 44);
             this.showAllToolStripMenuItem.Text = "Show All";
             // 
             // searchAppointmentByDateToolStripMenuItem
             // 
             this.searchAppointmentByDateToolStripMenuItem.Name = "searchAppointmentByDateToolStripMenuItem";
-            this.searchAppointmentByDateToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.searchAppointmentByDateToolStripMenuItem.Size = new System.Drawing.Size(477, 44);
             this.searchAppointmentByDateToolStripMenuItem.Text = "Search appointment by date";
             // 
             // showAPatientsAppointmentsToolStripMenuItem
             // 
             this.showAPatientsAppointmentsToolStripMenuItem.Name = "showAPatientsAppointmentsToolStripMenuItem";
-            this.showAPatientsAppointmentsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.showAPatientsAppointmentsToolStripMenuItem.Size = new System.Drawing.Size(477, 44);
             this.showAPatientsAppointmentsToolStripMenuItem.Text = "Show a patient\'s appointments";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(71, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1486, 960);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.menuStrip1.ResumeLayout(false);

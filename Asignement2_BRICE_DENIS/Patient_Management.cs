@@ -96,7 +96,6 @@ namespace Asignement2_BRICE_DENIS
             if (result == DialogResult.Cancel) return;
 
             this.Close();
-
         }
 
 
