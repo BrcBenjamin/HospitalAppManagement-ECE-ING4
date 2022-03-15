@@ -24,6 +24,8 @@ namespace Asignement2_BRICE_DENIS
         private void SearchAppByDate_Load(object sender, EventArgs e)
         {
             getHeaderColumns();
+            this.SearchAppDatePicker.MinDate = DateTime.Today;
+            this.SearchAppDatePicker.Value = DateTime.Now;
         }
 
         // Seach By Date

@@ -102,6 +102,7 @@
             this.ShowAllDataGridView.ReadOnly = true;
             this.ShowAllDataGridView.RowHeadersWidth = 82;
             this.ShowAllDataGridView.RowTemplate.Height = 41;
+            this.ShowAllDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ShowAllDataGridView.Size = new System.Drawing.Size(1210, 332);
             this.ShowAllDataGridView.TabIndex = 1;
             // 

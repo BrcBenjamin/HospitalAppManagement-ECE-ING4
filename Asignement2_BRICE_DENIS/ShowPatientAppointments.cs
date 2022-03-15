@@ -32,6 +32,7 @@ namespace Asignement2_BRICE_DENIS
         private void ShowPatientAppointments_Load(object sender, EventArgs e)
         {
             GetHeaderColumns();
+            this.TboxAppDate.MinDate = DateTime.Today;
         }
 
         //Search up a patient with their code

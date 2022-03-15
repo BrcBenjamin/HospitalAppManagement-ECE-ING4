@@ -67,6 +67,8 @@ namespace Asignement2_BRICE_DENIS
         {
             GetPatientCodes();
             GetDoctorCodes();
+            this.AppDateTbox.MinDate= DateTime.Now;
+            this.AppDateTbox.Value = DateTime.Now; 
         }
 
 
@@ -164,12 +166,12 @@ namespace Asignement2_BRICE_DENIS
         private void ClearAppointmentValues()
         {
             //patient values
-            this.AppPatientCodeCbox.Text = string.Empty;
+            this.AppPatientCodeCbox.Text = String.Empty;
             this.AppPatientNameTbox.Text = string.Empty;
             this.AppPatientRadioBoy.Checked = false;
             this.AppPatientRadioGirl.Checked = false;
             //Doctor values
-            this.AppDoctorCodeCbox.Text = string.Empty;
+            this.AppDoctorCodeCbox.Text = String.Empty;
             this.AppDoctorNameTbox.Text = string.Empty;
             this.AppDoctorSpecTbox.Text = string.Empty;
             // Appointment values

@@ -51,5 +51,10 @@ namespace Asignement2_BRICE_DENIS
             ShowPatientAppointments form = new ShowPatientAppointments();
             form.Show();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

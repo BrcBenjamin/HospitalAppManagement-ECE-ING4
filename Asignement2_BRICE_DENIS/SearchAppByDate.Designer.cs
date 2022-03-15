@@ -84,6 +84,7 @@
             // SearchAppDatePicker
             // 
             this.SearchAppDatePicker.Location = new System.Drawing.Point(86, 88);
+            this.SearchAppDatePicker.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.SearchAppDatePicker.Name = "SearchAppDatePicker";
             this.SearchAppDatePicker.Size = new System.Drawing.Size(374, 39);
             this.SearchAppDatePicker.TabIndex = 0;

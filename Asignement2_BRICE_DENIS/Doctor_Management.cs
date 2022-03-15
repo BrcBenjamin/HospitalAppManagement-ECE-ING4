@@ -34,6 +34,8 @@ namespace Asignement2_BRICE_DENIS
             this.DoctorSpecialityCbox.Text = ShowPatientAppointments.doctorSpeciality;
             this.DoctorNameTbox.Text = ShowPatientAppointments.doctorName;
             this.DoctorPhoneTbox.Text = ShowPatientAppointments.doctorTel;
+            this.DoctorDate.MaxDate = System.DateTime.Now;
+            this.DoctorDate.Value = System.DateTime.Today;
 
         }
 
@@ -464,7 +466,7 @@ namespace Asignement2_BRICE_DENIS
             this.DoctorDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DoctorDate.Location = new System.Drawing.Point(231, 287);
             this.DoctorDate.MaxDate = new System.DateTime(2024, 12, 31, 0, 0, 0, 0);
-            this.DoctorDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DoctorDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.DoctorDate.Name = "DoctorDate";
             this.DoctorDate.Size = new System.Drawing.Size(377, 39);
             this.DoctorDate.TabIndex = 4;

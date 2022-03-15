@@ -22,6 +22,13 @@ namespace Asignement2_BRICE_DENIS
             return false;
         }
 
+        // FORM LOAD
+        private void Patient_Management_Load(object sender, EventArgs e)
+        {
+            this.PatientDatePicker.MaxDate = DateTime.Now;
+            this.PatientDatePicker.Value = DateTime.Today;
+        }
+
         //NEW
         private void NewButton_Click(object sender, EventArgs e)
         {
@@ -513,6 +520,7 @@ namespace Asignement2_BRICE_DENIS
             this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "Patient_Management";
             this.Text = "Patient_Management";
+            this.Load += new System.EventHandler(this.Patient_Management_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -539,6 +547,5 @@ namespace Asignement2_BRICE_DENIS
         private Label GenderLabel;
         private GroupBox groupBox1;
 
- 
     }
 }

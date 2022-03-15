@@ -134,6 +134,8 @@
             this.AppDateTbox.CustomFormat = "dd MMMM yyyy";
             this.AppDateTbox.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.AppDateTbox.Location = new System.Drawing.Point(262, 73);
+            this.AppDateTbox.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.AppDateTbox.MinDate = new System.DateTime(2022, 3, 15, 0, 0, 0, 0);
             this.AppDateTbox.Name = "AppDateTbox";
             this.AppDateTbox.Size = new System.Drawing.Size(340, 39);
             this.AppDateTbox.TabIndex = 2;
