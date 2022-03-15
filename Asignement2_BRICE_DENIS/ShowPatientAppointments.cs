@@ -58,7 +58,7 @@ namespace Asignement2_BRICE_DENIS
         }
 
 
-        // On Cell click Click in DataGridView
+        // On Cell Click in DataGridView
         private void DataGridPatientApp_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             GetDoctorInformation(e);
@@ -250,7 +250,6 @@ namespace Asignement2_BRICE_DENIS
 
             do
             {
-                reader.Read();
                 while (reader.Read())
                 {
                     this.CboxDoctorCode.Items.Add(reader["DoctorId"].ToString());

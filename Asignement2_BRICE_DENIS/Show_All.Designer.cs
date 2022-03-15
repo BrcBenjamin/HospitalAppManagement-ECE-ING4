@@ -148,7 +148,7 @@
             this.InfoGBox.Size = new System.Drawing.Size(322, 106);
             this.InfoGBox.TabIndex = 5;
             this.InfoGBox.TabStop = false;
-            this.InfoGBox.Text = "Gender Help";
+            this.InfoGBox.Text = "Patient Gender Helper";
             // 
             // Show_All
             // 
