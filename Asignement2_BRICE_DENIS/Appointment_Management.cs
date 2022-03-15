@@ -88,7 +88,6 @@ namespace Asignement2_BRICE_DENIS
 
             do
             {
-                reader.Read();
                 while (reader.Read())
                 {
                     this.AppPatientCodeCbox.Items.Add(reader["PatientId"].ToString());
@@ -134,7 +133,6 @@ namespace Asignement2_BRICE_DENIS
 
             do
             {
-                reader.Read();
                 while (reader.Read())
                 {
                     this.AppDoctorCodeCbox.Items.Add(reader["DoctorId"].ToString());

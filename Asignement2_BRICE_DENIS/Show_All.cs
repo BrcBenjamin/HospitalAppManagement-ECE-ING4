@@ -80,21 +80,11 @@ namespace Asignement2_BRICE_DENIS
             DataTable dt = new DataTable();
             dt.Load(reader);
 
-  /*          foreach(DataRow row in dt.Rows)
-            {
-                if (Convert.ToBoolean(row["PatientGender"]) == false)
-                {
-                    row["PatientGender"] = "Male";
-                }else
-                {
-                    row["PatientGender"] = "Female";
-                }
-            }*/
-
             ShowAllDataGridView.DataSource = dt;
 
             reader.Close();
             connection.Close();
         }
+
     }
 }

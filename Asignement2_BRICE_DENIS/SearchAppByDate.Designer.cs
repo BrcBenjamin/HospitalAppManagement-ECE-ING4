@@ -208,8 +208,10 @@
             // 
             // SearchAppByDate
             // 
+            this.AcceptButton = this.SearchAppOkButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.SearchAppCancelButton;
             this.ClientSize = new System.Drawing.Size(1612, 966);
             this.Controls.Add(this.PatientInfoGbox);
             this.Controls.Add(this.DoctorInfoGbox);

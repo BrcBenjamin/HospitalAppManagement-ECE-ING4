@@ -33,8 +33,13 @@
             this.RadioShowAllPatients = new System.Windows.Forms.RadioButton();
             this.RadioShowAllDoctors = new System.Windows.Forms.RadioButton();
             this.ShowAllDataGridView = new System.Windows.Forms.DataGridView();
+            this.LabelInfoBoy = new System.Windows.Forms.Label();
+            this.InfoCheckBox2 = new System.Windows.Forms.CheckBox();
+            this.InfoCheckBox1 = new System.Windows.Forms.CheckBox();
+            this.InfoGBox = new System.Windows.Forms.GroupBox();
             this.ShowAllGBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShowAllDataGridView)).BeginInit();
+            this.InfoGBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShowAllGBox
@@ -92,7 +97,7 @@
             this.ShowAllDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.ShowAllDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ShowAllDataGridView.GridColor = System.Drawing.SystemColors.Info;
-            this.ShowAllDataGridView.Location = new System.Drawing.Point(97, 328);
+            this.ShowAllDataGridView.Location = new System.Drawing.Point(97, 312);
             this.ShowAllDataGridView.Name = "ShowAllDataGridView";
             this.ShowAllDataGridView.ReadOnly = true;
             this.ShowAllDataGridView.RowHeadersWidth = 82;
@@ -100,11 +105,56 @@
             this.ShowAllDataGridView.Size = new System.Drawing.Size(1210, 332);
             this.ShowAllDataGridView.TabIndex = 1;
             // 
+            // LabelInfoBoy
+            // 
+            this.LabelInfoBoy.AutoSize = true;
+            this.LabelInfoBoy.Location = new System.Drawing.Point(72, 6);
+            this.LabelInfoBoy.Name = "LabelInfoBoy";
+            this.LabelInfoBoy.Size = new System.Drawing.Size(0, 32);
+            this.LabelInfoBoy.TabIndex = 2;
+            // 
+            // InfoCheckBox2
+            // 
+            this.InfoCheckBox2.AutoCheck = false;
+            this.InfoCheckBox2.AutoSize = true;
+            this.InfoCheckBox2.Location = new System.Drawing.Point(170, 48);
+            this.InfoCheckBox2.Name = "InfoCheckBox2";
+            this.InfoCheckBox2.Size = new System.Drawing.Size(146, 36);
+            this.InfoCheckBox2.TabIndex = 3;
+            this.InfoCheckBox2.Text = "= Female";
+            this.InfoCheckBox2.UseVisualStyleBackColor = true;
+            // 
+            // InfoCheckBox1
+            // 
+            this.InfoCheckBox1.AutoCheck = false;
+            this.InfoCheckBox1.AutoSize = true;
+            this.InfoCheckBox1.Checked = true;
+            this.InfoCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.InfoCheckBox1.Location = new System.Drawing.Point(24, 48);
+            this.InfoCheckBox1.Name = "InfoCheckBox1";
+            this.InfoCheckBox1.Size = new System.Drawing.Size(122, 36);
+            this.InfoCheckBox1.TabIndex = 4;
+            this.InfoCheckBox1.Text = "= Male";
+            this.InfoCheckBox1.UseVisualStyleBackColor = true;
+            // 
+            // InfoGBox
+            // 
+            this.InfoGBox.Controls.Add(this.InfoCheckBox1);
+            this.InfoGBox.Controls.Add(this.InfoCheckBox2);
+            this.InfoGBox.Controls.Add(this.LabelInfoBoy);
+            this.InfoGBox.Location = new System.Drawing.Point(1001, 659);
+            this.InfoGBox.Name = "InfoGBox";
+            this.InfoGBox.Size = new System.Drawing.Size(322, 106);
+            this.InfoGBox.TabIndex = 5;
+            this.InfoGBox.TabStop = false;
+            this.InfoGBox.Text = "Gender Help";
+            // 
             // Show_All
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1374, 780);
+            this.Controls.Add(this.InfoGBox);
             this.Controls.Add(this.ShowAllDataGridView);
             this.Controls.Add(this.ShowAllGBox);
             this.MinimumSize = new System.Drawing.Size(1400, 850);
@@ -113,6 +163,8 @@
             this.ShowAllGBox.ResumeLayout(false);
             this.ShowAllGBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShowAllDataGridView)).EndInit();
+            this.InfoGBox.ResumeLayout(false);
+            this.InfoGBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -124,5 +176,9 @@
         private RadioButton RadioShowAllPatients;
         private RadioButton RadioShowAllDoctors;
         private DataGridView ShowAllDataGridView;
+        private Label LabelInfoBoy;
+        private CheckBox InfoCheckBox2;
+        private CheckBox InfoCheckBox1;
+        private GroupBox InfoGBox;
     }
 }

@@ -507,6 +507,8 @@ namespace Asignement2_BRICE_DENIS
             // 
             // Doctor_Management
             // 
+            this.AcceptButton = this.DoctorAddButton;
+            this.CancelButton = this.DoctorExitButton;
             this.ClientSize = new System.Drawing.Size(1077, 535);
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(1000, 500);

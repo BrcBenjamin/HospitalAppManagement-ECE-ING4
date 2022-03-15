@@ -185,6 +185,7 @@
             // 
             this.AppDoctorSpecTbox.Location = new System.Drawing.Point(248, 215);
             this.AppDoctorSpecTbox.Name = "AppDoctorSpecTbox";
+            this.AppDoctorSpecTbox.ReadOnly = true;
             this.AppDoctorSpecTbox.Size = new System.Drawing.Size(208, 39);
             this.AppDoctorSpecTbox.TabIndex = 4;
             // 
@@ -192,6 +193,7 @@
             // 
             this.AppDoctorNameTbox.Location = new System.Drawing.Point(248, 147);
             this.AppDoctorNameTbox.Name = "AppDoctorNameTbox";
+            this.AppDoctorNameTbox.ReadOnly = true;
             this.AppDoctorNameTbox.Size = new System.Drawing.Size(208, 39);
             this.AppDoctorNameTbox.TabIndex = 3;
             // 
@@ -239,6 +241,7 @@
             // 
             // AppPatientRadioBoy
             // 
+            this.AppPatientRadioBoy.AutoCheck = false;
             this.AppPatientRadioBoy.AutoSize = true;
             this.AppPatientRadioBoy.Location = new System.Drawing.Point(244, 272);
             this.AppPatientRadioBoy.Name = "AppPatientRadioBoy";
@@ -250,6 +253,7 @@
             // 
             // AppPatientRadioGirl
             // 
+            this.AppPatientRadioGirl.AutoCheck = false;
             this.AppPatientRadioGirl.AutoSize = true;
             this.AppPatientRadioGirl.Location = new System.Drawing.Point(244, 230);
             this.AppPatientRadioGirl.Name = "AppPatientRadioGirl";
@@ -263,6 +267,7 @@
             // 
             this.AppPatientNameTbox.Location = new System.Drawing.Point(244, 164);
             this.AppPatientNameTbox.Name = "AppPatientNameTbox";
+            this.AppPatientNameTbox.ReadOnly = true;
             this.AppPatientNameTbox.Size = new System.Drawing.Size(216, 39);
             this.AppPatientNameTbox.TabIndex = 4;
             // 
@@ -306,8 +311,10 @@
             // 
             // AppointmentManagement
             // 
+            this.AcceptButton = this.AddAppButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.ExitAppButton;
             this.ClientSize = new System.Drawing.Size(1588, 979);
             this.Controls.Add(this.AppointmentManagementGroupBox);
             this.MinimumSize = new System.Drawing.Size(1600, 1050);

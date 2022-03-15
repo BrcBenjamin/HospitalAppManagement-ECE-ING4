@@ -309,6 +309,7 @@
             // 
             // ShowPatientAppointments
             // 
+            this.AcceptButton = this.ButtonSearchPatient;
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1696, 1049);
